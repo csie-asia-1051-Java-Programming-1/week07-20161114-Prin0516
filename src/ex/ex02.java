@@ -1,13 +1,14 @@
 package ex;
-
-/*請寫一個程式，用陣列儲存使用者輸入的 n 個整數，透過函式 var() 可以回傳計算該陣列裡的數字的變異數後再列印出結果。
+/*承上題，除了var() 函數之外，再用建立一個 std() 函數，
+ * 程式在接收完使用者輸入的一維整數陣列之後，呼叫std()函式可得到陣列的標準差，特別注意，
+ * 不要只用 std() 函數算結果，必須由std()去呼叫 var() 函數之後回到 std() 函式處理完再傳回給主程式，
+ * 主程式再把結果印出。
  * Date: 2016/11/14
  * Author: 105021046 賴沛錞
  */
 import java.util.Scanner;
 
-public class ex01 {
-
+public class ex02 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner scn = new Scanner(System.in);
@@ -18,7 +19,7 @@ public class ex01 {
 			data[i] = scn.nextInt();
 			sum = sum + data[i];
 		}
-		System.out.println(var(data, n, sum / n) / n);
+		System.out.println(std(var(data, n, sum / n) / n));
 
 	}
 
@@ -32,15 +33,8 @@ public class ex01 {
 
 	}
 
-	// public static float var(int data[], int n, int sum) {
-	// if (n == 0) {
-	// return (float) Math.pow(data[n] - sum, 2);
-	//
-	// } else {
-	// return (float) (Math.pow(data[n] - sum, 2) + var(data, n - 1, sum));
-	//
-	// }
-	//
-	// }
+	public static double std(double a) {
+		return Math.sqrt(a);
+	}
 
 }
